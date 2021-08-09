@@ -1,4 +1,4 @@
-package br.com.jogoshowmilhao.application;
+package br.com.jogoshowmilhao.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

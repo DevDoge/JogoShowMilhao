@@ -5,4 +5,6 @@ module com.example.jogoshowmilhao {
 
     opens br.com.jogoshowmilhao.application to javafx.fxml;
     exports br.com.jogoshowmilhao.application;
+    exports br.com.jogoshowmilhao.controller;
+    opens br.com.jogoshowmilhao.controller to javafx.fxml;
 }
