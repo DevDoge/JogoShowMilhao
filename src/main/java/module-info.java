@@ -2,6 +2,7 @@ module com.example.jogoshowmilhao {
     requires javafx.controls;
     requires javafx.fxml;
     requires log4j;
+    requires jlayer;
 
 
     opens br.com.jogoshowmilhao.application to javafx.fxml;
