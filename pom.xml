@@ -85,7 +85,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.jogoshowmilhao/br.com.jogoshowmilhao.application.HelloApplication
+                            <mainClass>com.example.jogoshowmilhao/br.com.jogoshowmilhao.application.Main
                             </mainClass>
                         </configuration>
                     </execution>
