@@ -3,6 +3,7 @@ module com.example.jogoshowmilhao {
     requires javafx.fxml;
     requires log4j;
     requires jlayer;
+    requires java.sql;
 
 
     opens br.com.jogoshowmilhao.application to javafx.fxml;

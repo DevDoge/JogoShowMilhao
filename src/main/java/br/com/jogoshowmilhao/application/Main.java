@@ -1,5 +1,6 @@
 package br.com.jogoshowmilhao.application;
 
+import br.com.jogoshowmilhao.connection.ConnectionFactory;
 import br.com.jogoshowmilhao.util.LogUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,9 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class Main extends Application {
@@ -29,10 +33,22 @@ public class Main extends Application {
         ContinuousReproduction reproduction = new ContinuousReproduction(OPENING_MUSIC, true);
         reproduction.start();
 
-        JLayer layer = new JLayer();
-        File mp3 = new File(DECK_MUSIC);
-        layer.tocar(mp3);
-        layer.start();
+//        JLayer layer = new JLayer();
+//        File mp3 = new File(DECK_MUSIC);
+//        layer.tocar(mp3);
+//        layer.start();
+
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "INSERT INTO jogador (id, nome, pontuacao) VALUES ($next_id, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setString(2, "Marcos");
+            statement.setInt(3, 2);
+            statement.execute();
+            connection.commit();
+
+        } catch (SQLException throwables) {
+            LogUtil.getLogger(Main.class).error(throwables.getMessage());
+        }
     }
 
     public static void main(String[] args) {
